@@ -1,0 +1,27 @@
+.container {
+  margin-bottom: 5em;
+}
+
+@media screen and (min-width: 500px) {
+  .container {
+    width: 400px;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .container {
+    width: 900px;
+  }
+}
+
+.country {
+  color: #A9ACB3;
+  font-weight: bold;
+  text-align: center;
+}
+
+.firstCase {
+  color: #A9ACB3;
+  font-size: 13px;
+  text-align: center;
+}

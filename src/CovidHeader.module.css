@@ -1,0 +1,8 @@
+.covidHeader {
+  text-align: center;
+}
+
+.covidHeader h1 {
+  font-size: 32px;
+  font-family: 'Roboto', sans-serif;
+}
