@@ -6,11 +6,8 @@ function CovidHeader() {
     <div className={covidHeaderStyles.covidHeader}>
       <h1>Normalized COVID-19 evolution by country</h1>
       <p>
-        We got too used to see the exponential drama-looking curve in
-        almost every COVID-19's evolution charts.
-        <br />
-        This chart shows you the normalized COVID-19 progress over time,
-        substracting recovered cases from confirmed cases.
+        Normalized COVID-19 progress over time,
+        substracting recovered and death cases from confirmed cases.
       </p>
     </div>
   );

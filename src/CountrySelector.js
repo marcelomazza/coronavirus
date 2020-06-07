@@ -41,7 +41,9 @@ function CountrySelector({ country, setCountry }) {
           {showSelectedCountries ? (
             selectedCountries.map((item, i) => (
               <li key={i}>
-                <button onClick={() => setCountry(item)} className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
+                <button
+                  onClick={() => setCountry(item)}
+                  className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
                   {item.Country}
                 </button>
               </li>
@@ -49,14 +51,23 @@ function CountrySelector({ country, setCountry }) {
           ) : (
             apiCountries.map((item, i) => (
               <li key={i}>
-                <button onClick={() => setCountry(item)} className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
+                <button
+                  onClick={() => setCountry(item)}
+                  className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
                   {item.Country}
                 </button>
               </li>
             ))
           )}
-          <li>
-            <button onClick={() => setshowSelectedCountries(!showSelectedCountries)}>More countries...</button>
+          <li className={showSelectedCountries ? '' : CountrySelectorStyles.fixed}>
+            <button
+              onClick={() => setshowSelectedCountries(!showSelectedCountries)}>
+                {showSelectedCountries ? (
+                  'Show more countries'
+                ) : (
+                  'Show less'
+                )}
+            </button>
           </li>
         </ul>
       ) : null}

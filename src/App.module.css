@@ -1,4 +1,5 @@
 @import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&display=swap');
 
 body {
   margin: 0 auto;
@@ -6,15 +7,5 @@ body {
   text-align: center;
   color: #FFF;
   background: #12151C;
-}
-
-.container {
-  height: 100%;
-  /* display: flex;
-  position: relative;
-  width: calc(100vw - 2rem);
-  height: calc(100vh - 2rem);
-  justify-content: center;
-  flex-direction: column;
-  padding: 1rem; */
+  font-family: 'Noticia Text', serif;
 }

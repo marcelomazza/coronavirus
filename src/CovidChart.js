@@ -59,7 +59,7 @@ function CovidChart({ country }) {
           <Legend verticalAlign="top" height={36} wrapperStyle={{fontSize: "11px", color: "#A9ACB3"}}/>
           <Line type="basis" dataKey="confirmed" name="Confirmed" stroke="#30394C" strokeWidth={2} dot={false} />
           <Line type="basis" dataKey="deaths" name="Deaths" stroke="#742A1B" strokeWidth={2} dot={false} />
-          <Line type="basis" dataKey="recovered" name="Recovered" stroke="#16504c" strokeWidth={2} dot={false} />
+          <Line type="basis" dataKey="recovered" name="Recovered" stroke="#1B5F5B" strokeWidth={2} dot={false} />
           <Line type="basis" dataKey="active" name="Active Cases" stroke="#21FF9F" strokeWidth={3} dot={false} />
         </LineChart>
       </ResponsiveContainer>
