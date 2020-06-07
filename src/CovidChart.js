@@ -6,6 +6,24 @@ function CovidChart({ country }) {
   const [items, setItems] = useState([]);
   const [noResults, setNoResults] = useState(false);
 
+  const itemStyle = {
+    color: 'white',
+    fontSize: '0.8rem',
+  }
+
+  const wrapperStyle = {
+    backgroundColor: 'transparent',
+  }
+
+  const contentStyle = {
+    border: '0',
+    backgroundColor: 'transparent',
+    backgroundImage: 'linear-gradient(rgba(71, 84, 113, 0.8), rgba(48, 57, 76, 0.8))',
+  }
+
+  const labelStyle = {
+    marginBottom: '0.75rem',
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -32,11 +50,10 @@ function CovidChart({ country }) {
             const formattedDate = new Intl.DateTimeFormat("en-GB", {
               year: "numeric",
               month: "long",
-              day: "2-digit"
+              day: "numeric"
             }).format(parsedDate);
 
             return {
-              date: d.Date,
               formattedDate: formattedDate,
               active: active,
               confirmed: d.Confirmed,
@@ -66,10 +83,10 @@ function CovidChart({ country }) {
       ) : null}
       <ResponsiveContainer className={covidChartStyles.chart} width="100%">
         <LineChart data={items} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-          <XAxis dataKey="date" style={{fontSize: '11px'}} />
+          <XAxis dataKey="formattedDate" style={{fontSize: '11px'}} />
           <YAxis style={{fontSize: '11px'}} />
           <CartesianGrid stroke="#30394C" strokeDasharray="5 5" />
-          <Tooltip />
+          <Tooltip itemStyle={itemStyle} wrapperStyle={wrapperStyle} contentStyle={contentStyle} labelStyle={labelStyle}/>
           <Legend verticalAlign="top" height={36} wrapperStyle={{fontSize: "11px", color: "#A9ACB3"}}/>
           <Line type="basis" dataKey="confirmed" name="Confirmed" stroke="#30394C" strokeWidth={2} dot={false} />
           <Line type="basis" dataKey="deaths" name="Deaths" stroke="#742A1B" strokeWidth={2} dot={false} />
