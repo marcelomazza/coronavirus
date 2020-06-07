@@ -8,6 +8,7 @@ function CovidChart({ country }) {
 
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     setNoResults(false);
 
     const requestOptions = {
