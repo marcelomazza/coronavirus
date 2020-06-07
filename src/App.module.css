@@ -1,0 +1,20 @@
+@import-normalize;
+
+body {
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  color: #FFF;
+  background: #12151C;
+}
+
+.container {
+  height: 100%;
+  /* display: flex;
+  position: relative;
+  width: calc(100vw - 2rem);
+  height: calc(100vh - 2rem);
+  justify-content: center;
+  flex-direction: column;
+  padding: 1rem; */
+}

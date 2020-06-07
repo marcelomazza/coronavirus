@@ -1,0 +1,41 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 600px;
+  padding: 0;
+  text-align: left;
+  overflow: auto;
+  list-style: none;
+
+  button {
+    margin: 0.25rem;
+    padding: 0.8rem;
+    border: 0;
+    border-radius: 0.4rem;
+    color: #FFF;
+    background: #30394C;
+    background: linear-gradient(rgba(#475471, 0.5), rgba(#30394C, 0.5));
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+    transition: background 300ms;
+
+    &:focus {
+      outline: 0;
+      box-shadow: inset 0 0 5px #21FF9F;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(rgba(#475471, 0.8), rgba(#30394C, 0.8));
+    }
+  }
+
+  .active,
+  .active:hover {
+    cursor: default;
+    color: #30394C;
+    background: #21FF9F;
+  }
+}
+
+

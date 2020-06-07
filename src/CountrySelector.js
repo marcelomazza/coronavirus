@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import CountrySelectorStyles from "./CountrySelector.module.scss"
 
 function CountrySelector({ country, setCountry }) {
   const selectedCountries = [
@@ -36,26 +37,26 @@ function CountrySelector({ country, setCountry }) {
   return (
     <div>
       {country ? (
-        <ul style={{textAlign: 'left', maxHeight: '600px', overflow: 'auto', listStyle: 'none', position: 'absolute', top: '100px', right:  '-120px' }}>
+        <ul className={CountrySelectorStyles.list}>
           {showSelectedCountries ? (
             selectedCountries.map((item, i) => (
-              <li key={i} style={{ margin: '0.25em' }}>
-                <button onClick={() => setCountry(item)} style={{ backgroundColor: item.Slug === country.Slug ? '#F68A1D' : '#A9ACB3', border: 'none', color: '#FFF', padding: '1em'}}>
+              <li key={i}>
+                <button onClick={() => setCountry(item)} className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
                   {item.Country}
                 </button>
               </li>
             ))
           ) : (
             apiCountries.map((item, i) => (
-              <li key={i} style={{ margin: '0.25em' }}>
-                <button onClick={() => setCountry(item)} style={{ backgroundColor: item.Slug === country.Slug ? '#F68A1D' : '#A9ACB3', border: 'none', color: '#FFF', padding: '1em'}}>
+              <li key={i}>
+                <button onClick={() => setCountry(item)} className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
                   {item.Country}
                 </button>
               </li>
             ))
           )}
-          <li style={{ margin: '0.25em' }}>
-            <button onClick={() => setshowSelectedCountries(!showSelectedCountries)} style={{ backgroundColor: '#A9ACB3', border: 'none', color: '#FFF', padding: '1em'}}>More countries...</button>
+          <li>
+            <button onClick={() => setshowSelectedCountries(!showSelectedCountries)}>More countries...</button>
           </li>
         </ul>
       ) : null}
