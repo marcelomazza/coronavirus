@@ -4,8 +4,12 @@ import covidChartStyles from "./CovidChart.module.css"
 
 function CovidChart({ country }) {
   const [items, setItems] = useState([]);
+  const [noResults, setNoResults] = useState(false);
+
 
   useEffect(() => {
+    setNoResults(false);
+
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
@@ -15,6 +19,10 @@ function CovidChart({ country }) {
       .then(res => res.json())
       .then(
         (result) => {
+          if (result.length === 0) {
+            setNoResults(true);
+          }
+
           // Discard dates without any cases
           const fromDayOne = result.filter((elem) => elem.Confirmed > 0);
           setItems(fromDayOne.map(function(d, i) {
@@ -50,6 +58,11 @@ function CovidChart({ country }) {
           </span>
         </h4>
       </div>
+      {noResults ? (
+        <div className={covidChartStyles.noResults}>
+          Sorry, no results for {country.Country}
+        </div>
+      ) : null}
       <ResponsiveContainer className={covidChartStyles.chart} width="100%">
         <LineChart data={items} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
           <XAxis dataKey="date" style={{fontSize: '11px'}} />
