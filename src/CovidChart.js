@@ -6,6 +6,12 @@ function CovidChart({ country }) {
   const [items, setItems] = useState([]);
   const [noResults, setNoResults] = useState(false);
 
+  const legendStyle = {
+    right: 0,
+    fontSize: '11px',
+    color: '#A9ACB3',
+  }
+
   const itemStyle = {
     color: 'white',
     fontSize: '0.8rem',
@@ -87,7 +93,7 @@ function CovidChart({ country }) {
           <YAxis style={{fontSize: '11px'}} />
           <CartesianGrid stroke="#30394C" strokeDasharray="5 5" />
           <Tooltip itemStyle={itemStyle} wrapperStyle={wrapperStyle} contentStyle={contentStyle} labelStyle={labelStyle}/>
-          <Legend verticalAlign="top" height={36} wrapperStyle={{fontSize: "11px", color: "#A9ACB3"}}/>
+          <Legend verticalAlign="top" height={36} wrapperStyle={legendStyle} />
           <Line type="basis" dataKey="confirmed" name="Confirmed" stroke="#30394C" strokeWidth={2} dot={false} />
           <Line type="basis" dataKey="deaths" name="Deaths" stroke="#742A1B" strokeWidth={2} dot={false} />
           <Line type="basis" dataKey="recovered" name="Recovered" stroke="#1B5F5B" strokeWidth={2} dot={false} />

@@ -1,4 +1,5 @@
 @import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@400;700&display=swap');
 
 body {
@@ -7,7 +8,7 @@ body {
   text-align: center;
   color: #FFF;
   background: #12151C;
-  font-family: 'Noticia Text', serif;
+  font-family: 'Montserrat', sans-serif;
 
   @media (min-width: 1450px) {
     padding: 2rem;
