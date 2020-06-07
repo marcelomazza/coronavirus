@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, LineChart, Line, CartesianGrid, Legend, XAxis, YAxis, Tooltip } from 'recharts';
-import covidChartStyles from "./CovidChart.module.css"
+import covidChartStyles from "./CovidChart.module.scss"
 
 function CovidChart({ country }) {
   const [items, setItems] = useState([]);

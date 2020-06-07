@@ -1,5 +1,5 @@
 import React from "react"
-import covidHeaderStyles from "./CovidHeader.module.css"
+import covidHeaderStyles from "./CovidHeader.module.scss"
 
 function CovidHeader() {
   return (

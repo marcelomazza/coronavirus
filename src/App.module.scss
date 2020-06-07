@@ -8,4 +8,8 @@ body {
   color: #FFF;
   background: #12151C;
   font-family: 'Noticia Text', serif;
+
+  @media (min-width: 1450px) {
+    padding: 2rem;
+  }
 }

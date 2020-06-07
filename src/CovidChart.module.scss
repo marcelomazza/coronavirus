@@ -1,6 +1,19 @@
 .covidChart {
   position: relative;
   margin: 0 -1rem;
+
+  @media (min-width: 500px) {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 60%;
+  }
+
+  @media (min-width: 1450px) {
+    max-width: 1200px;
+  }
 }
 
 .header {
@@ -11,6 +24,14 @@
 
 .chart {
   min-height: 300px;
+
+  @media (min-height: 750px) {
+    min-height: 450px;
+  }
+
+  @media (min-height: 800px) and (min-width: 1024px) {
+    min-height: 600px;
+  }
 }
 
 .country {
