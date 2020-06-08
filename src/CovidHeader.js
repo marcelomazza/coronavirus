@@ -5,7 +5,7 @@ function CovidHeader() {
   return (
     <div className={covidHeaderStyles.covidHeader}>
       <h1>Normalized COVID-19 evolution by country</h1>
-      <p>
+      <p className={covidHeaderStyles.subtitle}>
         Normalized COVID-19 progress over time,
         substracting recovered and death cases from confirmed cases.
       </p>
