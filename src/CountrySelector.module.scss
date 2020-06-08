@@ -1,6 +1,8 @@
 .container {
   flex-grow: 0;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 1366px) {
     padding-top: 80px;
@@ -18,9 +20,20 @@
   list-style: none;
 
   @media (min-width: 1366px) {
-    flex-direction: column;
+    display: block;
+    flex-grow: 0;
   }
 
+  .active,
+  .active:hover {
+    cursor: default;
+    color: #30394C;
+    background: #21FF9F;
+  }
+}
+
+.list,
+.fixed {
   button {
     margin: 0.25rem;
     padding: 0.8rem;
@@ -43,21 +56,4 @@
       background: linear-gradient(rgba(#475471, 0.8), rgba(#30394C, 0.8));
     }
   }
-
-  .active,
-  .active:hover {
-    cursor: default;
-    color: #30394C;
-    background: #21FF9F;
-  }
-
-  .fixed {
-    padding: 1rem;
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    text-align: center;
-  }
 }
-
-

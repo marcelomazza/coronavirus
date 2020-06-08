@@ -37,29 +37,31 @@ function CountrySelector({ country, setCountry }) {
   return (
     <div className={CountrySelectorStyles.container}>
       {country ? (
-        <ul className={CountrySelectorStyles.list}>
-          {showSelectedCountries ? (
-            selectedCountries.map((item, i) => (
-              <li key={i}>
-                <button
-                  onClick={() => setCountry(item)}
-                  className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
-                  {item.Country}
-                </button>
-              </li>
-            ))
-          ) : (
-            apiCountries.map((item, i) => (
-              <li key={i}>
-                <button
-                  onClick={() => setCountry(item)}
-                  className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
-                  {item.Country}
-                </button>
-              </li>
-            ))
-          )}
-          <li className={CountrySelectorStyles.fixed}>
+        <React.Fragment>
+          <ul className={CountrySelectorStyles.list}>
+            {showSelectedCountries ? (
+              selectedCountries.map((item, i) => (
+                <li key={i}>
+                  <button
+                    onClick={() => setCountry(item)}
+                    className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
+                    {item.Country}
+                  </button>
+                </li>
+              ))
+            ) : (
+              apiCountries.map((item, i) => (
+                <li key={i}>
+                  <button
+                    onClick={() => setCountry(item)}
+                    className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
+                    {item.Country}
+                  </button>
+                </li>
+              ))
+            )}
+          </ul>
+          <div className={CountrySelectorStyles.fixed}>
             <button
               onClick={() => setshowSelectedCountries(!showSelectedCountries)}>
                 {showSelectedCountries ? (
@@ -68,8 +70,8 @@ function CountrySelector({ country, setCountry }) {
                   'Show less'
                 )}
             </button>
-          </li>
-        </ul>
+          </div>
+        </React.Fragment>
       ) : null}
     </div>
   );
