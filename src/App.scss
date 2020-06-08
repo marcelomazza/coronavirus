@@ -15,17 +15,17 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-:global(a) {
+a {
   color: #21FF9F;
   text-decoration: none;
 }
 
-:global(a:hover) {
+a:hover {
   color: rgb(17, 211, 127);
   text-decoration: underline;
 }
 
-:global(#root) {
+#root {
   width: calc(100% - 2rem);
   height: calc(100% - 2rem);
   padding: 1rem;

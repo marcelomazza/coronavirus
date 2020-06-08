@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import appStyles from "./App.module.scss"
+import "./App.scss"
 import Container from "./Container"
 import CovidHeader from './CovidHeader';
 import CovidChart from './CovidChart';
