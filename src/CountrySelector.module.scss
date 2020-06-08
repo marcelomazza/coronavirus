@@ -1,3 +1,13 @@
+.container {
+  flex-grow: 0;
+  overflow: auto;
+
+  @media (min-width: 1366px) {
+    padding-top: 80px;
+    flex-grow: 1;
+  }
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
@@ -6,6 +16,10 @@
   text-align: left;
   overflow: auto;
   list-style: none;
+
+  @media (min-width: 1366px) {
+    flex-direction: column;
+  }
 
   button {
     margin: 0.25rem;
@@ -42,9 +56,6 @@
     position: fixed;
     right: 0;
     bottom: 0;
-    left: 0;
-    box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
-    background: rgba(#12151C, 0.95);
     text-align: center;
   }
 }

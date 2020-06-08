@@ -14,10 +14,8 @@ function App() {
   return (
     <Container>
       <CovidHeader />
-      <div className={appStyles.container}>
-        <CovidChart country={country} setCountry={setCountry} />
-        <CountrySelector country={country} setCountry={setCountry} style={{ 'flexShrink': 1 }}/>
-      </div>
+      <CovidChart country={country} setCountry={setCountry} />
+      <CountrySelector country={country} setCountry={setCountry} style={{ 'flexShrink': 1 }}/>
     </Container>
   );
 }

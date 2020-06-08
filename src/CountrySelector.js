@@ -35,7 +35,7 @@ function CountrySelector({ country, setCountry }) {
   }, []);
 
   return (
-    <div>
+    <div className={CountrySelectorStyles.container}>
       {country ? (
         <ul className={CountrySelectorStyles.list}>
           {showSelectedCountries ? (
@@ -59,7 +59,7 @@ function CountrySelector({ country, setCountry }) {
               </li>
             ))
           )}
-          <li className={showSelectedCountries ? '' : CountrySelectorStyles.fixed}>
+          <li className={CountrySelectorStyles.fixed}>
             <button
               onClick={() => setshowSelectedCountries(!showSelectedCountries)}>
                 {showSelectedCountries ? (
