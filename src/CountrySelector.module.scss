@@ -3,10 +3,12 @@
   overflow: auto;
   display: flex;
   flex-direction: column;
+  text-align: left;
 
   @media (min-width: 1024px) {
     padding-top: 80px;
-    flex-grow: 1;
+    padding-left: 40px;
+    width: 300px;
   }
 }
 
@@ -15,13 +17,13 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 0;
-  text-align: left;
   overflow: auto;
   list-style: none;
 
   @media (min-width: 1024px) {
     display: block;
     flex-grow: 0;
+    margin: 0;
   }
 
   .active,
@@ -70,4 +72,11 @@
       background: linear-gradient(rgba(#475471, 0.8), rgba(#30394C, 0.8));
     }
   }
+}
+
+.fixed {
+  margin-top: auto;
+  padding-top: 10px;
+  box-shadow: 0 -15px 15px -15px black;
+  background: transparent;
 }
