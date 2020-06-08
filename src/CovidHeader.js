@@ -9,6 +9,11 @@ function CovidHeader() {
         Normalized COVID-19 progress over time,
         substracting recovered and death cases from confirmed cases.
       </p>
+      <div className={covidHeaderStyles.author}>
+        <p>
+          Built by <a href="https://marcelomazza.com.ar/">Marce</a> with <a href="https://reactjs.org/">React</a> & <a href="https://covid19api.com/">covid19api.com</a>
+        </p>
+      </div>
     </div>
   );
 }

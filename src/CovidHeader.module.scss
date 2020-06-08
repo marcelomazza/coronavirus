@@ -1,5 +1,7 @@
 .covidHeader {
   @media (min-width: 1366px) {
+    display: flex;
+    flex-direction: column;
     width: 300px;
     padding-right: 3rem;
     text-align: left;
@@ -29,5 +31,13 @@
 
   @media (min-width: 1024px) {
     font-size: 1.2rem;
+  }
+}
+
+.author {
+  margin-top: auto;
+
+  p {
+    font-size: 0.75rem;
   }
 }
