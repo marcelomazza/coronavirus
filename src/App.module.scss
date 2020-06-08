@@ -32,7 +32,7 @@ body {
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 1366px) {
+  @media (min-width: 1024px) {
     width: calc(100% - 6rem);
     height: calc(100% - 6rem);
     padding: 3rem;

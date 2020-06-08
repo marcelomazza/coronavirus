@@ -4,7 +4,7 @@
   flex-direction: column;
   overflow: hidden;
 
-  @media (min-width: 1366px) {
+  @media (min-width: 1024px) {
     flex-direction: row;
   }
 }

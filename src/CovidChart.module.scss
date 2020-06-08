@@ -5,7 +5,7 @@
   flex-shrink: 0;
   flex-basis: 40%;
 
-  @media (min-width: 1366px) {
+  @media (min-width: 1024px) {
     flex-basis: 55%;
   }
 }
