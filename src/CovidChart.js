@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ResponsiveContainer, LineChart, Line, CartesianGrid, Legend, XAxis, YAxis, Tooltip } from 'recharts';
+import { ResponsiveContainer, AreaChart, Area, CartesianGrid, Legend, XAxis, YAxis, Tooltip } from 'recharts';
 import covidChartStyles from "./CovidChart.module.scss"
 
 function CovidChart({ country }) {
@@ -88,17 +88,23 @@ function CovidChart({ country }) {
         </div>
       ) : null}
       <ResponsiveContainer className={covidChartStyles.chart} width="100%">
-        <LineChart data={items} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+        <AreaChart data={items} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
+          <defs>
+            <linearGradient id="activeGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="5%" stopColor="#21FF9F" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#21FF9F" stopOpacity={0} />
+            </linearGradient>
+          </defs>
           <XAxis dataKey="formattedDate" style={{fontSize: '11px'}} />
           <YAxis style={{fontSize: '11px'}} />
           <CartesianGrid stroke="#30394C" strokeDasharray="5 5" />
           <Tooltip itemStyle={itemStyle} wrapperStyle={wrapperStyle} contentStyle={contentStyle} labelStyle={labelStyle}/>
           <Legend verticalAlign="top" height={36} wrapperStyle={legendStyle} />
-          <Line type="basis" dataKey="confirmed" name="Confirmed" stroke="#30394C" strokeWidth={2} dot={false} />
-          <Line type="basis" dataKey="deaths" name="Deaths" stroke="#742A1B" strokeWidth={2} dot={false} />
-          <Line type="basis" dataKey="recovered" name="Recovered" stroke="#1B5F5B" strokeWidth={2} dot={false} />
-          <Line type="basis" dataKey="active" name="Active Cases" stroke="#21FF9F" strokeWidth={3} dot={false} />
-        </LineChart>
+          <Area type="basis" dataKey="confirmed" name="Confirmed" stroke="#30394C" strokeWidth={2} dot={false} fill="none" />
+          <Area type="basis" dataKey="deaths" name="Deaths" stroke="#742A1B" strokeWidth={2} dot={false} fill="none" />
+          <Area type="basis" dataKey="recovered" name="Recovered" stroke="#1B5F5B" strokeWidth={2} dot={false} fill="none" />
+          <Area type="basis" dataKey="active" name="Active Cases" stroke="#21FF9F" strokeWidth={2} dot={false} fill="url(#activeGradient)" />
+        </AreaChart>
       </ResponsiveContainer>
     </div>
   );
