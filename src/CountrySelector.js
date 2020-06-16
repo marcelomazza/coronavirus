@@ -2,53 +2,53 @@ import React, { useState } from 'react';
 import CountrySelectorStyles from "./CountrySelector.module.scss"
 
 function CountrySelector({ countries, query, setQuery }) {
-  const selectedCountries = [
-    { Slug: 'argentina', Country: 'Argentina' },
-    { Slug: 'brazil', Country: 'Brazil' },
-    { Slug: 'chile', Country: 'Chile' },
-    { Slug: 'china', Country: 'China' },
-    { Slug: 'france', Country: 'France' },
-    { Slug: 'italy', Country: 'Italy' },
-    { Slug: 'spain', Country: 'Spain' },
-    { Slug: 'united-states', Country: 'United States' },
-    { Slug: 'united-kingdom', Country: 'United Kingdom' },
-    { Slug: 'uruguay', Country: 'Uruguay' },
+  const initialCountries = [
+    'argentina',
+    'brazil',
+    'chile',
+    'china',
+    'france',
+    'italy',
+    'spain',
+    'united-states',
+    'united-kingdom',
+    'uruguay'
   ];
 
-  const [showSelectedCountries, setshowSelectedCountries] = useState(true);
+  const [showInitialCountries, setshowInitialCountries] = useState(true);
+
+  function CountryButton(props) {
+    return (
+      <li>
+        <button
+          onClick={() => setQuery({ country: props.item.Slug })}
+          className={props.item.Slug === query.country ? CountrySelectorStyles.active : ''}>
+          {props.item.Country}
+        </button>
+      </li>
+    );
+  }
 
   return (
     <div className={CountrySelectorStyles.container}>
       {query ? (
         <React.Fragment>
           <ul className={CountrySelectorStyles.list}>
-            {showSelectedCountries ? (
-              selectedCountries.map((item, i) => (
-                <li key={i}>
-                  <button
-                    onClick={() => setQuery( { country: item.Slug }) }
-                    className={item.Slug === query.country ? CountrySelectorStyles.active : ''}>
-                    {item.Country}
-                  </button>
-                </li>
+            {showInitialCountries ? (
+              countries.filter(country => initialCountries.includes(country.Slug)).map((item, i) => (
+                <CountryButton key={i} item={item} />
               ))
             ) : (
               countries.map((item, i) => (
-                <li key={i}>
-                  <button
-                    onClick={() => setQuery({ country: item.Slug }) }
-                    className={item.Slug === query.country ? CountrySelectorStyles.active : ''}>
-                    {item.Country}
-                  </button>
-                </li>
+                <CountryButton key={i} item={item} />
               ))
             )}
           </ul>
           <div className={CountrySelectorStyles.fixed}>
             <button
-              onClick={() => setshowSelectedCountries(!showSelectedCountries)}>
-                {showSelectedCountries ? (
-                  'Show more countries'
+              onClick={() => setshowInitialCountries(!showInitialCountries)}>
+                {showInitialCountries ? (
+                  'Show all countries'
                 ) : (
                   'Show less'
                 )}
