@@ -8,7 +8,7 @@ import CountrySelector from './CountrySelector';
 
 function App() {
   const [query, setQuery] = useQueryParams({
-    country: withDefault(StringParam, 'united-states')
+    country: withDefault(StringParam, 'china')
   });
 
   const [countries, setCountries] = useState([]);
