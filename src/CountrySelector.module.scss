@@ -79,4 +79,9 @@
   padding-top: 10px;
   box-shadow: 0 -15px 15px -15px black;
   background: transparent;
+  text-align: center;
+
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
 }
