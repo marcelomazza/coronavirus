@@ -68,7 +68,11 @@ function CovidChart({ country }) {
             };
           }));
         }
-      )
+    ).catch(
+      (error) => {
+        console.log(error)
+      }
+    )
   }, [country]);
 
   return (

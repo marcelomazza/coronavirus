@@ -22,7 +22,7 @@ function CountrySelector({ country, setCountry }) {
     const requestOptions = {
       method: 'GET',
       redirect: 'follow',
-      from: '2020-03-01T00:00:00Z'
+      from: '2020-03-01T00:00:00Z',
     };
 
     fetch("https://api.covid19api.com/countries", requestOptions)
@@ -30,6 +30,10 @@ function CountrySelector({ country, setCountry }) {
       .then(
         (result) => {
           setApiCountries(result.sort((a, b) => a.Country.localeCompare(b.Country)));
+        }
+      ).catch(
+        (error) => {
+          console.log(error)
         }
       )
   }, []);
@@ -43,7 +47,7 @@ function CountrySelector({ country, setCountry }) {
               selectedCountries.map((item, i) => (
                 <li key={i}>
                   <button
-                    onClick={() => setCountry(item)}
+                    onClick={() => setCountry( {Slug: item.Slug, Country: item.Country}) }
                     className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
                     {item.Country}
                   </button>
@@ -53,7 +57,7 @@ function CountrySelector({ country, setCountry }) {
               apiCountries.map((item, i) => (
                 <li key={i}>
                   <button
-                    onClick={() => setCountry(item)}
+                    onClick={() => setCountry({ Slug: item.Slug, Country: item.Country })}
                     className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
                     {item.Country}
                   </button>
