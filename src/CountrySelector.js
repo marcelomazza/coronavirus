@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CountrySelectorStyles from "./CountrySelector.module.scss"
 
-function CountrySelector({ country, setCountry, apiCountries }) {
+function CountrySelector({ countries, query, setQuery }) {
   const selectedCountries = [
     { Slug: 'argentina', Country: 'Argentina' },
     { Slug: 'brazil', Country: 'Brazil' },
@@ -19,25 +19,25 @@ function CountrySelector({ country, setCountry, apiCountries }) {
 
   return (
     <div className={CountrySelectorStyles.container}>
-      {country ? (
+      {query ? (
         <React.Fragment>
           <ul className={CountrySelectorStyles.list}>
             {showSelectedCountries ? (
               selectedCountries.map((item, i) => (
                 <li key={i}>
                   <button
-                    onClick={() => setCountry( {Slug: item.Slug, Country: item.Country}) }
-                    className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
+                    onClick={() => setQuery( { country: item.Slug }) }
+                    className={item.Slug === query.country ? CountrySelectorStyles.active : ''}>
                     {item.Country}
                   </button>
                 </li>
               ))
             ) : (
-              apiCountries.map((item, i) => (
+              countries.map((item, i) => (
                 <li key={i}>
                   <button
-                    onClick={() => setCountry({ Slug: item.Slug, Country: item.Country })}
-                    className={item.Slug === country.Slug ? CountrySelectorStyles.active : ''}>
+                    onClick={() => setQuery({ country: item.Slug }) }
+                    className={item.Slug === query.country ? CountrySelectorStyles.active : ''}>
                     {item.Country}
                   </button>
                 </li>

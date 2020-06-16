@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, AreaChart, Area, CartesianGrid, Legend, XAxis, YAxis, Tooltip } from 'recharts';
 import covidChartStyles from "./CovidChart.module.scss"
 
-function CovidChart({ country }) {
+function CovidChart({ countries, query }) {
   const [items, setItems] = useState([]);
   const [noResults, setNoResults] = useState(false);
+  const selected = countries.find((country, i) => country.Slug == query.country);
 
   const legendStyle = {
     right: 0,
@@ -40,7 +41,7 @@ function CovidChart({ country }) {
       redirect: 'follow',
     };
 
-    fetch("https://api.covid19api.com/total/country/" + country.Slug, requestOptions)
+    fetch("https://api.covid19api.com/total/country/" + query.country, requestOptions)
       .then(res => res.json())
       .then(
         (result) => {
@@ -73,12 +74,17 @@ function CovidChart({ country }) {
         console.log(error)
       }
     )
-  }, [country]);
+  }, [query]);
 
   return (
     <div className={covidChartStyles.covidChart}>
       <div className={covidChartStyles.header}>
-        <h3 className={covidChartStyles.country}>{country.Country}</h3>
+        <h3 className={covidChartStyles.country}>
+          { selected ? (
+            selected.Country
+          ) : null
+          }
+        </h3>
         <h4 className={covidChartStyles.firstCase}>
           First case:
           <span className={covidChartStyles.firstDate}>
@@ -88,7 +94,7 @@ function CovidChart({ country }) {
       </div>
       {noResults ? (
         <div className={covidChartStyles.noResults}>
-          Sorry, no results for {country.Country}
+          Sorry, no results for {selected.Country}
         </div>
       ) : null}
       <div className={covidChartStyles.container}>

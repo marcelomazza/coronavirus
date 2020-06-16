@@ -7,12 +7,11 @@ import CovidChart from './CovidChart';
 import CountrySelector from './CountrySelector';
 
 function App() {
-  const [country, setCountry] = useQueryParams({
-    Slug: withDefault(StringParam, 'china'),
-    Country: withDefault(StringParam, 'China')
+  const [query, setQuery] = useQueryParams({
+    country: withDefault(StringParam, 'united-states')
   });
 
-  const [apiCountries, setApiCountries] = useState([]);
+  const [countries, setCountries] = useState([]);
 
   useEffect(() => {
     const requestOptions = {
@@ -25,21 +24,23 @@ function App() {
       .then(res => res.json())
       .then(
         (result) => {
-          setApiCountries(result.sort((a, b) => a.Country.localeCompare(b.Country)));
+          const sortedCountries = result.sort((a, b) => a.Country.localeCompare(b.Country));
+          setCountries(sortedCountries);
         }
       ).catch(
         (error) => {
           console.log(error)
         }
-      )
+      );
+
   }, []);
 
 
   return (
     <Container>
       <CovidHeader />
-      <CovidChart country={country} />
-      <CountrySelector country={country} apiCountries={apiCountries} setCountry={setCountry} style={{ 'flexShrink': 1 }}/>
+      <CovidChart countries={countries} query={query} />
+      <CountrySelector countries={countries} query={query} setQuery={setQuery} style={{ 'flexShrink': 1 }}/>
     </Container>
   );
 }
