@@ -79,18 +79,22 @@ function CovidChart({ countries, query }) {
   return (
     <div className={covidChartStyles.covidChart}>
       <div className={covidChartStyles.header}>
-        <h3 className={covidChartStyles.country}>
+        <h3 className={covidChartStyles.title}>
           { selected ? (
             selected.Country
           ) : null
           }
         </h3>
-        <h4 className={covidChartStyles.firstCase}>
-          First case:
-          <span className={covidChartStyles.firstDate}>
-            {items[0] ? items[0].formattedDate : ''}
-          </span>
-        </h4>
+        <h3 className={covidChartStyles.activeCasesTitle}>
+          Active cases:
+          {
+            items[items.length - 1] ? (
+              <span className= { covidChartStyles.activeCases }>
+                {items[items.length - 1].active.toLocaleString()}
+              </span>
+            ) : null
+          }
+        </h3>
       </div>
       {noResults ? (
         <div className={covidChartStyles.noResults}>

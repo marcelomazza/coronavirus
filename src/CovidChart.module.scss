@@ -24,35 +24,23 @@
   left: 0;
 }
 
-.chart {
-  // min-height: 300px;
-
-  @media (min-height: 750px) {
-    // min-height: 450px;
-  }
-
-  @media (min-height: 800px) and (min-width: 1024px) {
-    // min-height: 600px;
-  }
-}
-
-.country {
+.title {
   margin-top: 1.3rem;
   font-weight: bold;
   text-align: left;
   font-family: 'Noticia Text', serif;
 }
 
-.firstCase {
+.activeCasesTitle {
   font-weight: normal;
   text-align: right;
   font-size: 0.7rem;
 }
 
-.firstDate {
+.activeCases {
   display: block;
-  font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 1.17rem;
+  font-family: 'Noticia Text', serif;
 }
 
 .noResults {
