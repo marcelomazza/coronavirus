@@ -51,8 +51,27 @@ function CovidChart({ countries, query }) {
 
           // Discard dates without any cases
           const fromDayOne = result.filter((elem) => elem.Confirmed > 0);
+          let confirmedTrack = 0;
+          let deathsTrack = 0;
+          let recoveredTrack = 0;
+
           setItems(fromDayOne.map(function(d, i) {
-            const active = d.Confirmed - d.Recovered - d.Deaths;
+
+            // Some days are returning less confirmed that the day before
+            // In that case we keep the confirmed number from the previous day
+            if (d.Confirmed > confirmedTrack) {
+              confirmedTrack = d.Confirmed;
+            }
+
+            if (d.Recovered > 0) {
+              recoveredTrack = d.Recovered;
+            }
+
+            if (d.Deaths > 0) {
+              deathsTrack = d.Deaths;
+            }
+
+            const active = confirmedTrack - recoveredTrack - deathsTrack;
             const parsedDate = Date.parse(d.Date);
             const formattedDate = new Intl.DateTimeFormat("en-GB", {
               year: "numeric",
@@ -63,9 +82,9 @@ function CovidChart({ countries, query }) {
             return {
               formattedDate: formattedDate,
               active: active,
-              confirmed: d.Confirmed,
-              deaths: d.Deaths,
-              recovered: d.Recovered,
+              confirmed: confirmedTrack,
+              deaths: deathsTrack,
+              recovered: recoveredTrack,
             };
           }));
         }
