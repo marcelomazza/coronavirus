@@ -5,7 +5,7 @@ import covidChartStyles from "./CovidChart.module.scss"
 function CovidChart({ countries, query }) {
   const [items, setItems] = useState([]);
   const [noResults, setNoResults] = useState(false);
-  const selected = countries.find((country, i) => country.Slug == query.country);
+  const selected = countries.find((country, i) => country.Slug === query.country);
 
   const legendStyle = {
     right: 0,
