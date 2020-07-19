@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ReactGA from 'react-ga';
 import CountrySelectorStyles from "./CountrySelector.module.scss"
 
 function CountrySelector({ countries, query, setQuery }) {
@@ -21,7 +22,10 @@ function CountrySelector({ countries, query, setQuery }) {
     return (
       <li>
         <button
-          onClick={() => setQuery({ country: props.item.Slug })}
+          onClick={() => {
+            setQuery({ country: props.item.Slug });
+            ReactGA.pageview(window.location.pathname + window.location.search);
+          }}
           className={props.item.Slug === query.country ? CountrySelectorStyles.active : ''}>
           {props.item.Country}
         </button>
