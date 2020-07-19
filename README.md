@@ -1,6 +1,6 @@
 ## Normalized Coronavirus (COVID-19) Evolution by Country
 
-![Screenshot](https://raw.githubusercontent.com/marcelomazza/coronavirus/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/marcelomazza/coronavirus/master/public/screenshot.png)
 
 <p align="center">
   <a href="https://marcelomazza.github.io/coronavirus/">Live Version &raquo;</a>
